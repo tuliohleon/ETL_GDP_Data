@@ -84,6 +84,8 @@ def run_query(query_statement, sql_connection):
 
 def log_progress(message):
     ''' This function logs the mentioned message at a given stage of the code execution to a log file. Function returns nothing'''
+    with open('etl_project_log.txt', 'a') as f:
+        f.write(f'{datetime.now()} - {message}\n')
 
 url = 'https://web.archive.org/web/20230902185326/https://en.wikipedia.org/wiki/List_of_countries_by_GDP_%28nominal%29'
 table_attribs = ["Country", "GDP_USD_millions"]
